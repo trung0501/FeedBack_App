@@ -2143,3 +2143,6 @@ TypeError: UserDetailView.get() got an unexpected keyword argument 'name'
 [INFO] 2025-10-12 11:13:40,979 django.utils.autoreload | Watching for file changes with StatReloader
 [INFO] 2025-10-12 11:13:46,357 django.utils.autoreload | C:\Code\wefeed\backend\apps\users\views.py changed, reloading.
 [INFO] 2025-10-12 11:13:47,482 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-13 09:12:40,481 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-13 09:13:39,323 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\apps\users\views.py changed, reloading.
+[INFO] 2025-10-13 09:13:39,897 django.utils.autoreload | Watching for file changes with StatReloader

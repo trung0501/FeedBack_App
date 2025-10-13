@@ -37,35 +37,6 @@ User = get_user_model()
 logger = logging.getLogger(__name__)
 
 # Đăng ký người dùng mới
-# class RegisterView(APIView): 
-#     def post(self, request):
-#         email = request.data.get("email", "").strip()
-#         logger.info("[REGISTER] Nhận yêu cầu đăng ký với email=%s", email)
-
-#         try:
-#             # Kiểm tra email đã tồn tại chưa
-#             if User.objects.filter(email__iexact=email).exists():
-#                 logger.warning("[REGISTER] Email %s đã tồn tại", email)
-#                 return Response({"error": "Email đã được sử dụng"},
-#                                 status=status.HTTP_400_BAD_REQUEST)
-
-#             # Tạo user mới
-#             serializer = UserRegisterSerializer(data=request.data)
-#             if serializer.is_valid():
-#                 user = serializer.save()
-#                 logger.info("[REGISTER] Tạo user thành công (id=%s, email=%s)",
-#                             user.id, user.email)
-#                 return Response({"message": "Đăng ký thành công"},
-#                                 status=status.HTTP_201_CREATED)
-#             else:
-#                 logger.warning("[REGISTER] Dữ liệu không hợp lệ: %s", serializer.errors)
-#                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-#         except Exception as e:
-#             logger.exception("[REGISTER] Lỗi hệ thống khi đăng ký email=%s: %s", email, str(e))
-#             return Response({"error": f"Lỗi khi đăng ký: {str(e)}"},
-#                             status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
 class RegisterView(APIView): 
     def post(self, request):
         email = request.data.get("email", "").strip()
