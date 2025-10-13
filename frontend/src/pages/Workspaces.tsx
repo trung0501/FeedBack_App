@@ -164,11 +164,11 @@ export default function Workspaces() {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <p className="text-xs text-gray-500 mb-1">Projects</p>
-                    <p className="text-lg font-semibold text-gray-900">12</p>
+                    <p className="text-lg font-semibold text-gray-900">0</p>
                   </div>
                   <div>
                     <p className="text-xs text-gray-500 mb-1">Members</p>
-                    <p className="text-lg font-semibold text-gray-900">5</p>
+                    <p className="text-lg font-semibold text-gray-900">0</p>
                   </div>
                 </div>
               </div>
