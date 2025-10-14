@@ -20,29 +20,10 @@ export default function Workspaces() {
     setIsLoading(true);
     setError('');
     try {
-      // TODO: Implement API to get user's workspaces
-      // const data = await workspaceService.getMyWorkspaces();
-      // setWorkspaces(data);
-      
-      // Mock data for now
-      setWorkspaces([
-        {
-          id: 1,
-          name: 'Personal Workspace',
-          description: 'My personal projects and experiments',
-          owner: 1,
-          subscription_plan: 'free',
-          created_day: '2025-01-15T10:00:00',
-        },
-        {
-          id: 2,
-          name: 'Company Projects',
-          description: 'Work-related projects and collaborations',
-          owner: 1,
-          subscription_plan: 'pro',
-          created_day: '2025-01-10T14:30:00',
-        },
-      ]);
+      // GỌI API THẬT
+      const data = await workspaceService.getAllWorkspaces();
+      setWorkspaces(data);
+      console.log("Loaded workspaces:", data.length);
     } catch (err) {
       setError(handleApiError(err));
     } finally {
@@ -212,4 +193,5 @@ export default function Workspaces() {
     </DashboardLayout>
   );
 }
+
 

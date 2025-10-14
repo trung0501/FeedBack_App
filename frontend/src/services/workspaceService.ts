@@ -3,12 +3,20 @@ import type {
   Workspace,
   WorkspaceCreateRequest,
   WorkspaceMember,
-} from '../types/models';
+} from '@/types/models';
 
 /**
  * Workspace Service
  */
 class WorkspaceService {
+  /**
+   * Get all workspaces (for current user)
+   */
+  async getAllWorkspaces(): Promise<Workspace[]> {
+    const response = await api.get<Workspace[]>('/workspaces/list/');
+    return response.data;
+  }
+
   /**
    * Create new workspace
    */
