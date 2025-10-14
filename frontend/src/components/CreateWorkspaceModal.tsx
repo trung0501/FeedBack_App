@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useAuth } from '@/hooks';
 import { workspaceService } from '@/services';
 import { handleApiError } from '@/services';
 import type { Workspace, WorkspaceCreateRequest } from '@/types/models';
@@ -16,6 +17,7 @@ interface FormData extends WorkspaceCreateRequest {
 export default function CreateWorkspaceModal({ onClose, onSuccess }: CreateWorkspaceModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string>('');
+  const { user } = useAuth();
 
   const {
     register,
@@ -28,7 +30,13 @@ export default function CreateWorkspaceModal({ onClose, onSuccess }: CreateWorks
     setError('');
 
     try {
-      const newWorkspace = await workspaceService.createWorkspace(data);
+      // const newWorkspace = await workspaceService.createWorkspace(data);
+      const workspaceData = {
+        ...data,
+        owner: user?.id
+      };
+
+      const newWorkspace = await workspaceService.createWorkspace(workspaceData);
       onSuccess(newWorkspace);
       onClose();
     } catch (err) {
@@ -251,3 +259,4 @@ export default function CreateWorkspaceModal({ onClose, onSuccess }: CreateWorks
     </div>
   );
 }
+
