@@ -1,14 +1,18 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import DashboardLayout from '@/components/DashboardLayout';
 import CreateWorkspaceModal from '@/components/CreateWorkspaceModal';
+import EditWorkspaceModal from '@/components/EditWorkspaceModal';
 import { workspaceService } from '@/services';
 import { handleApiError } from '@/services';
 import type { Workspace } from '@/types/models';
 
 export default function Workspaces() {
+  const navigate = useNavigate();
   const [workspaces, setWorkspaces] = useState<Workspace[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+  const [editingWorkspace, setEditingWorkspace] = useState<Workspace | null>(null);
   const [error, setError] = useState<string>('');
 
   // Fetch workspaces on mount
@@ -20,7 +24,6 @@ export default function Workspaces() {
     setIsLoading(true);
     setError('');
     try {
-      // GỌI API THẬT
       const data = await workspaceService.getAllWorkspaces();
       setWorkspaces(data);
       console.log("Loaded workspaces:", data.length);
@@ -33,6 +36,14 @@ export default function Workspaces() {
 
   const handleCreateWorkspace = () => {
     setIsCreateModalOpen(true);
+  };
+
+  const handleEditWorkspace = (workspace: Workspace) => {
+    setEditingWorkspace(workspace);
+  };
+
+  const handleOpenWorkspace = (workspaceId: number) => {
+    navigate(`/workspaces/${workspaceId}`);
   };
 
   const handleDeleteWorkspace = async (workspaceId: number) => {
@@ -157,10 +168,16 @@ export default function Workspaces() {
 
               {/* Card Actions */}
               <div className="p-4 flex items-center gap-2">
-                <button className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium">
+                <button 
+                  onClick={() => handleOpenWorkspace(workspace.id)}
+                  className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+                >
                   Open
                 </button>
-                <button className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+                <button 
+                  onClick={() => handleEditWorkspace(workspace)}
+                  className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
+                >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -190,8 +207,23 @@ export default function Workspaces() {
           }}
         />
       )}
+
+      {/* Edit Workspace Modal */}
+      {editingWorkspace && (
+        <EditWorkspaceModal
+          workspace={editingWorkspace}
+          onClose={() => setEditingWorkspace(null)}
+          onSuccess={(updatedWorkspace) => {
+            setWorkspaces(
+              workspaces.map(w => w.id === updatedWorkspace.id ? updatedWorkspace : w)
+            );
+            setEditingWorkspace(null);
+          }}
+        />
+      )}
     </DashboardLayout>
   );
 }
+
 
 
