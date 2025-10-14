@@ -2147,3 +2147,334 @@ TypeError: UserDetailView.get() got an unexpected keyword argument 'name'
 [INFO] 2025-10-13 09:13:39,323 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\apps\users\views.py changed, reloading.
 [INFO] 2025-10-13 09:13:39,897 django.utils.autoreload | Watching for file changes with StatReloader
 [INFO] 2025-10-13 10:06:17,386 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 08:41:53,114 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 09:08:42,710 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\apps\workspaces\urls.py changed, reloading.
+[INFO] 2025-10-14 09:08:43,318 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 09:09:19,087 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\apps\workspaces\urls.py changed, reloading.
+[INFO] 2025-10-14 09:09:19,658 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 09:09:24,224 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\apps\workspaces\urls.py changed, reloading.
+[INFO] 2025-10-14 09:09:24,887 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 09:13:28,218 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\apps\workspaces\views.py changed, reloading.
+[INFO] 2025-10-14 09:13:28,776 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 09:13:36,426 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\apps\workspaces\views.py changed, reloading.
+[INFO] 2025-10-14 09:13:37,017 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 09:13:56,331 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\apps\workspaces\views.py changed, reloading.
+[INFO] 2025-10-14 09:13:56,900 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 09:14:10,027 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\apps\workspaces\views.py changed, reloading.
+[INFO] 2025-10-14 09:14:10,619 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 09:16:01,211 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\apps\workspaces\views.py changed, reloading.
+[INFO] 2025-10-14 09:16:01,905 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 09:23:57,903 apps.users.views | [REGISTER] Nhận yêu cầu đăng ký với email=Han@gmail.com
+[INFO] 2025-10-14 09:23:58,660 apps.users.views | [REGISTER] Tạo user thành công (id=23, email=Han@gmail.com)
+[INFO] 2025-10-14 09:23:58,682 django.server | "POST /api/users/register/ HTTP/1.1" 201 699
+[INFO] 2025-10-14 09:29:46,626 apps.workspaces.views | [WORKSPACE CREATE] Request received at /api/workspaces/
+[ERROR] 2025-10-14 09:29:46,829 django.request | Internal Server Error: /api/workspaces/
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\FeedBack_App\wefeed\backend\apps\workspaces\views.py", line 26, in post
+    workspace = serializer.save()
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\FeedBack_App\wefeed\backend\apps\workspaces\serializers.py", line 12, in create
+    return super().create(validated_data)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 661, in create
+    obj = self.model(**kwargs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\base.py", line 545, in __init__
+    _setattr(self, field.name, rel_obj)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 291, in __set__
+    raise ValueError(
+    ...<7 lines>...
+    )
+ValueError: Cannot assign "<django.contrib.auth.models.AnonymousUser object at 0x000002CD3DD9E780>": "Workspace.owner" must be a "User" instance.
+[ERROR] 2025-10-14 09:29:46,838 django.server | "POST /api/workspaces/ HTTP/1.1" 500 135338
+[INFO] 2025-10-14 09:33:12,621 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\backend\settings.py changed, reloading.
+[INFO] 2025-10-14 09:33:14,220 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 09:36:09,956 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\backend\settings.py changed, reloading.
+[INFO] 2025-10-14 09:36:10,569 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 09:43:05,247 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\apps\workspaces\views.py changed, reloading.
+[INFO] 2025-10-14 09:43:05,841 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 09:43:10,524 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\apps\workspaces\views.py changed, reloading.
+[INFO] 2025-10-14 09:43:11,111 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 09:43:24,145 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\apps\workspaces\views.py changed, reloading.
+[INFO] 2025-10-14 09:43:24,752 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 09:43:46,009 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\apps\workspaces\views.py changed, reloading.
+[INFO] 2025-10-14 09:43:46,527 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 09:44:19,267 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\backend\settings.py changed, reloading.
+[INFO] 2025-10-14 09:44:19,831 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 09:45:11,300 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\backend\settings.py changed, reloading.
+[INFO] 2025-10-14 09:45:12,060 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 09:46:44,152 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\backend\settings.py changed, reloading.
+[INFO] 2025-10-14 09:46:44,766 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 09:46:58,806 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\backend\settings.py changed, reloading.
+[INFO] 2025-10-14 09:46:59,453 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 09:53:37,323 apps.users.views | [REGISTER] Nhận yêu cầu đăng ký với email=Chi@gmail.com
+[INFO] 2025-10-14 09:53:37,726 apps.users.views | [REGISTER] Tạo user thành công (id=24, email=Chi@gmail.com)
+[INFO] 2025-10-14 09:53:37,735 django.server | "POST /api/users/register/ HTTP/1.1" 201 698
+[WARNING] 2025-10-14 09:57:05,104 django.request | Forbidden: /api/workspaces/
+[WARNING] 2025-10-14 09:57:05,105 django.server | "POST /api/workspaces/ HTTP/1.1" 403 58
+[WARNING] 2025-10-14 09:59:45,895 django.request | Forbidden: /api/workspaces/
+[WARNING] 2025-10-14 09:59:45,896 django.server | "POST /api/workspaces/ HTTP/1.1" 403 58
+[INFO] 2025-10-14 10:01:40,464 apps.users.views | [REGISTER] Nhận yêu cầu đăng ký với email=t@gmail.com
+[INFO] 2025-10-14 10:01:40,860 apps.users.views | [REGISTER] Tạo user thành công (id=25, email=t@gmail.com)
+[INFO] 2025-10-14 10:01:40,861 django.server | "POST /api/users/register/ HTTP/1.1" 201 694
+[WARNING] 2025-10-14 10:03:48,897 django.request | Forbidden: /api/workspaces/
+[WARNING] 2025-10-14 10:03:48,898 django.server | "POST /api/workspaces/ HTTP/1.1" 403 58
+[INFO] 2025-10-14 10:05:39,543 apps.workspaces.views | [WORKSPACE LIST] Request received at /api/workspaces/list/
+[ERROR] 2025-10-14 10:05:39,544 apps.workspaces.views | Error listing workspaces
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 2128, in get_prep_value
+    return int(value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\models.py", line 549, in __int__
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: Cannot cast AnonymousUser to int. Are you trying to use it in place of User?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\FeedBack_App\wefeed\backend\apps\workspaces\views.py", line 90, in get
+    workspaces = Workspace.objects.filter(owner=request.user)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1511, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1518, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 1646, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 1678, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 1588, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 1415, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\lookups.py", line 38, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_lookups.py", line 112, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 2130, in get_prep_value
+    raise e.__class__(
+        "Field '%s' expected a number but got %r." % (self.name, value),
+    ) from e
+TypeError: Field 'id' expected a number but got <django.contrib.auth.models.AnonymousUser object at 0x00000195810A94F0>.
+[ERROR] 2025-10-14 10:05:39,647 django.request | Internal Server Error: /api/workspaces/list/
+[ERROR] 2025-10-14 10:05:39,648 django.server | "GET /api/workspaces/list/ HTTP/1.1" 500 159
+[INFO] 2025-10-14 10:10:52,849 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\apps\workspaces\views.py changed, reloading.
+[INFO] 2025-10-14 10:10:53,505 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 10:11:20,871 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\apps\workspaces\views.py changed, reloading.
+[INFO] 2025-10-14 10:11:21,420 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 10:12:02,365 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 10:15:17,679 apps.workspaces.views | [WORKSPACE CREATE] Request received at /api/workspaces/
+[INFO] 2025-10-14 10:15:17,684 apps.workspaces.views | Found user: id=24, email=Chi@gmail.com
+[ERROR] 2025-10-14 10:15:17,685 apps.workspaces.views | Error creating workspace
+Traceback (most recent call last):
+  File "D:\FeedBack_App\wefeed\backend\apps\workspaces\views.py", line 65, in post
+    workspace = serializer.save(owner=user)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\FeedBack_App\wefeed\backend\apps\workspaces\serializers.py", line 11, in create
+    validated_data['owner'] = self.context['request'].user
+                              ~~~~~~~~~~~~^^^^^^^^^^^
+KeyError: 'request'
+[ERROR] 2025-10-14 10:15:17,705 django.request | Internal Server Error: /api/workspaces/
+[ERROR] 2025-10-14 10:15:17,706 django.server | "POST /api/workspaces/ HTTP/1.1" 500 48
+[INFO] 2025-10-14 10:15:27,089 apps.workspaces.views | [WORKSPACE CREATE] Request received at /api/workspaces/
+[WARNING] 2025-10-14 10:15:27,090 apps.workspaces.views | Owner ID not provided in request
+[WARNING] 2025-10-14 10:15:27,090 django.request | Bad Request: /api/workspaces/
+[WARNING] 2025-10-14 10:15:27,091 django.server | "POST /api/workspaces/ HTTP/1.1" 400 32
+[INFO] 2025-10-14 10:15:45,405 apps.workspaces.views | [WORKSPACE CREATE] Request received at /api/workspaces/
+[INFO] 2025-10-14 10:15:45,408 apps.workspaces.views | Found user: id=24, email=Chi@gmail.com
+[ERROR] 2025-10-14 10:15:45,409 apps.workspaces.views | Error creating workspace
+Traceback (most recent call last):
+  File "D:\FeedBack_App\wefeed\backend\apps\workspaces\views.py", line 65, in post
+    workspace = serializer.save(owner=user)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\FeedBack_App\wefeed\backend\apps\workspaces\serializers.py", line 11, in create
+    validated_data['owner'] = self.context['request'].user
+                              ~~~~~~~~~~~~^^^^^^^^^^^
+KeyError: 'request'
+[ERROR] 2025-10-14 10:15:45,411 django.request | Internal Server Error: /api/workspaces/
+[ERROR] 2025-10-14 10:15:45,411 django.server | "POST /api/workspaces/ HTTP/1.1" 500 48
+[INFO] 2025-10-14 10:17:19,539 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\apps\workspaces\serializers.py changed, reloading.
+[INFO] 2025-10-14 10:17:20,146 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 10:18:29,278 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\apps\workspaces\serializers.py changed, reloading.
+[INFO] 2025-10-14 10:18:29,839 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 10:19:07,351 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 10:19:12,650 apps.workspaces.views | [WORKSPACE CREATE] Request received at /api/workspaces/
+[INFO] 2025-10-14 10:19:12,664 apps.workspaces.views | Found user: id=24, email=Chi@gmail.com
+[INFO] 2025-10-14 10:19:12,671 apps.workspaces.views | Workspace created successfully: id=5, name=Test Workspace No Auth
+[INFO] 2025-10-14 10:19:12,675 django.server | "POST /api/workspaces/ HTTP/1.1" 201 169
+[INFO] 2025-10-14 10:43:16,425 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\apps\workspaces\views.py changed, reloading.
+[INFO] 2025-10-14 10:43:16,991 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 10:57:34,664 apps.workspaces.views | [WORKSPACE LIST] Request received at /api/workspaces/list/
+[ERROR] 2025-10-14 10:57:34,665 apps.workspaces.views | Error listing workspaces
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 2128, in get_prep_value
+    return int(value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\models.py", line 549, in __int__
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: Cannot cast AnonymousUser to int. Are you trying to use it in place of User?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\FeedBack_App\wefeed\backend\apps\workspaces\views.py", line 88, in get
+    workspaces = Workspace.objects.filter(owner=request.user)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1511, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1518, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 1646, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 1678, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 1588, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 1415, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\lookups.py", line 38, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_lookups.py", line 112, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 2130, in get_prep_value
+    raise e.__class__(
+        "Field '%s' expected a number but got %r." % (self.name, value),
+    ) from e
+TypeError: Field 'id' expected a number but got <django.contrib.auth.models.AnonymousUser object at 0x0000019DFD631F90>.
+[ERROR] 2025-10-14 10:57:34,691 django.request | Internal Server Error: /api/workspaces/list/
+[ERROR] 2025-10-14 10:57:34,692 django.server | "GET /api/workspaces/list/ HTTP/1.1" 500 159
+[INFO] 2025-10-14 10:57:42,689 apps.workspaces.views | [WORKSPACE LIST] Request received at /api/workspaces/list/
+[ERROR] 2025-10-14 10:57:42,689 apps.workspaces.views | Error listing workspaces
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 2128, in get_prep_value
+    return int(value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\models.py", line 549, in __int__
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: Cannot cast AnonymousUser to int. Are you trying to use it in place of User?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\FeedBack_App\wefeed\backend\apps\workspaces\views.py", line 88, in get
+    workspaces = Workspace.objects.filter(owner=request.user)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1511, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1518, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 1646, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 1678, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 1588, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 1415, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\lookups.py", line 38, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_lookups.py", line 112, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 2130, in get_prep_value
+    raise e.__class__(
+        "Field '%s' expected a number but got %r." % (self.name, value),
+    ) from e
+TypeError: Field 'id' expected a number but got <django.contrib.auth.models.AnonymousUser object at 0x0000019DFD63D6E0>.
+[ERROR] 2025-10-14 10:57:42,693 django.request | Internal Server Error: /api/workspaces/list/
+[ERROR] 2025-10-14 10:57:42,694 django.server | "GET /api/workspaces/list/ HTTP/1.1" 500 159
+[INFO] 2025-10-14 10:59:11,803 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\apps\workspaces\views.py changed, reloading.
+[INFO] 2025-10-14 10:59:12,386 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 10:59:21,073 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\apps\workspaces\views.py changed, reloading.
+[INFO] 2025-10-14 10:59:21,619 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 11:02:13,361 django.utils.autoreload | D:\FeedBack_App\wefeed\backend\apps\workspaces\views.py changed, reloading.
+[INFO] 2025-10-14 11:02:13,913 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 11:02:50,517 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-14 11:03:06,180 apps.workspaces.views | [WORKSPACE LIST] Request received at /api/workspaces/list/
+[INFO] 2025-10-14 11:03:06,187 apps.workspaces.views | Found 4 workspaces total
+[INFO] 2025-10-14 11:03:06,193 django.server | "GET /api/workspaces/list/ HTTP/1.1" 200 532

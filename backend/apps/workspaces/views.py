@@ -6,7 +6,9 @@ from rest_framework import status
 from django.shortcuts import get_object_or_404
 from datetime import datetime
 from .models import Workspace
+from apps.users.models import User 
 from .serializers import WorkspaceSerializer
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 # class WorkspaceViewSet(viewsets.ModelViewSet):
@@ -16,22 +18,89 @@ from .serializers import WorkspaceSerializer
 logger = logging.getLogger(__name__)
 
 # Tạo workspace mới
+# class WorkspaceCreateView(APIView):
+#     def post(self, request):
+#         logger.info("[WORKSPACE CREATE] Request received at %s", request.path)
+
+#         serializer = WorkspaceSerializer(data=request.data, context={'request': request})
+#         if serializer.is_valid():
+#             workspace = serializer.save()
+#             logger.info("Workspace created successfully: id=%s, name=%s", workspace.id, workspace.name)
+
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+#         logger.warning("Workspace creation failed. Errors: %s", serializer.errors)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 class WorkspaceCreateView(APIView):
     def post(self, request):
         logger.info("[WORKSPACE CREATE] Request received at %s", request.path)
 
-        serializer = WorkspaceSerializer(data=request.data, context={'request': request})
-        if serializer.is_valid():
-            workspace = serializer.save()
-            logger.info("Workspace created successfully: id=%s, name=%s", workspace.id, workspace.name)
+        try:
+            # LẤY OWNER ID TỪ REQUEST BODY
+            owner_id = request.data.get('owner')
+            
+            if not owner_id:
+                logger.warning("Owner ID not provided in request")
+                return Response(
+                    {"error": "Owner ID is required"}, 
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            
+            # TÌM USER
+            from apps.users.models import User
+            try:
+                user = User.objects.get(id=owner_id)
+                logger.info("Found user: id=%s, email=%s", user.id, user.email)
+            except User.DoesNotExist:
+                logger.error("User not found: id=%s", owner_id)
+                return Response(
+                    {"error": "User not found"}, 
+                    status=status.HTTP_404_NOT_FOUND
+                )
+            
+            # TẠO WORKSPACE
+            serializer = WorkspaceSerializer(data=request.data)
+            if serializer.is_valid():
+                workspace = serializer.save(owner=user)
+                logger.info("Workspace created successfully: id=%s, name=%s", 
+                           workspace.id, workspace.name)
 
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-        logger.warning("Workspace creation failed. Errors: %s", serializer.errors)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            logger.warning("Workspace creation failed. Errors: %s", serializer.errors)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            
+        except Exception as e:
+            logger.exception("Error creating workspace")
+            return Response(
+                {"error": f"Lỗi khi tạo workspace: {str(e)}"}, 
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
 
 
-# Lấy, cập nhật, xóa workspace
+# Lấy danh sách workspaces của user
+class WorkspaceListView(APIView):
+    def get(self, request):
+        logger.info("[WORKSPACE LIST] Request received at %s", request.path)
+        try:
+            # LẤY TẤT CẢ WORKSPACES (không filter theo user)
+            workspaces = Workspace.objects.all()
+            
+            logger.info("Found %d workspaces total", workspaces.count())
+            
+            serializer = WorkspaceSerializer(workspaces, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+            
+        except Exception as e:
+            logger.exception("[WORKSPACE LIST] Error: %s", str(e))
+            return Response(
+                {"error": f"Lỗi khi lấy danh sách workspace: {str(e)}"}, 
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+
+
+# Lấy, cập nhật, xóa workspace 
 class WorkspaceDetailView(APIView):
     def get(self, request, id):
         logger.info("[WORKSPACE DETAIL] Người dùng gửi yêu cầu tại %s với id=%s", request.path, id)

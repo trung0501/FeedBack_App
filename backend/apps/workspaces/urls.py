@@ -3,6 +3,7 @@ from .views import WorkspaceCreateView
 from django.urls import path
 from .views import (
     WorkspaceCreateView,
+    WorkspaceListView,
     WorkspaceDetailView,
     WorkspaceUpgradeView
 )
@@ -16,6 +17,7 @@ from .views import (
 
 urlpatterns = [
     path('workspaces/', WorkspaceCreateView.as_view(), name='workspace-create'),
+    path('workspaces/list/', WorkspaceListView.as_view(), name='workspace-list'),
     path("workspaces/<int:id>/", WorkspaceDetailView.as_view(), name="workspace-detail"),
     path('workspaces/<int:id>/upgrade/', WorkspaceUpgradeView.as_view(), name='workspace-upgrade'),
 ]

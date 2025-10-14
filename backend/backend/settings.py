@@ -156,10 +156,13 @@ INSTALLED_APPS = [
     'apps.webhooks',
 ]
 
+# Custom User Model
+# AUTH_USER_MODEL = 'users.User'
+
 # Cấu hình mặc định cho DRF
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
-        'rest_framework.renderers.JSONRenderer'
+        'rest_framework.renderers.JSONRendererphair '
     ],
     'DEFAULT_PARSER_CLASSES': [
         'rest_framework.parsers.JSONParser'
@@ -218,7 +221,6 @@ EMAIL_HOST_USER = 'your_email@gmail.com'
 EMAIL_HOST_PASSWORD = 'your_app_password'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-# AUTH_USER_MODEL = 'users.User'
 
 TEMPLATES = [
     {
