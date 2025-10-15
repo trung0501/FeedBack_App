@@ -2478,3 +2478,18 @@ TypeError: Field 'id' expected a number but got <django.contrib.auth.models.Anon
 [INFO] 2025-10-14 11:03:06,180 apps.workspaces.views | [WORKSPACE LIST] Request received at /api/workspaces/list/
 [INFO] 2025-10-14 11:03:06,187 apps.workspaces.views | Found 4 workspaces total
 [INFO] 2025-10-14 11:03:06,193 django.server | "GET /api/workspaces/list/ HTTP/1.1" 200 532
+[INFO] 2025-10-15 09:31:07,051 django.utils.autoreload | Watching for file changes with StatReloader
+[INFO] 2025-10-15 09:31:21,193 django.server | "OPTIONS /api/workspaces/list/ HTTP/1.1" 200 0
+[INFO] 2025-10-15 09:31:21,194 django.server | "OPTIONS /api/workspaces/list/ HTTP/1.1" 200 0
+[INFO] 2025-10-15 09:31:21,196 apps.workspaces.views | [WORKSPACE LIST] Request received at /api/workspaces/list/
+[INFO] 2025-10-15 09:31:21,200 apps.workspaces.views | Found 4 workspaces total
+[INFO] 2025-10-15 09:31:21,214 django.server | "GET /api/workspaces/list/ HTTP/1.1" 200 557
+[INFO] 2025-10-15 09:31:21,215 apps.workspaces.views | [WORKSPACE LIST] Request received at /api/workspaces/list/
+[INFO] 2025-10-15 09:31:21,218 apps.workspaces.views | Found 4 workspaces total
+[INFO] 2025-10-15 09:31:21,220 django.server | "GET /api/workspaces/list/ HTTP/1.1" 200 557
+[INFO] 2025-10-15 09:31:24,487 apps.workspaces.views | [WORKSPACE LIST] Request received at /api/workspaces/list/
+[INFO] 2025-10-15 09:31:24,490 apps.workspaces.views | Found 4 workspaces total
+[INFO] 2025-10-15 09:31:24,492 django.server | "GET /api/workspaces/list/ HTTP/1.1" 200 557
+[INFO] 2025-10-15 09:31:24,494 apps.workspaces.views | [WORKSPACE LIST] Request received at /api/workspaces/list/
+[INFO] 2025-10-15 09:31:24,497 apps.workspaces.views | Found 4 workspaces total
+[INFO] 2025-10-15 09:31:24,499 django.server | "GET /api/workspaces/list/ HTTP/1.1" 200 557
