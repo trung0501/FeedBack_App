@@ -97,26 +97,23 @@ class ProjectDetailView(APIView):
 # Phân trang
 class ProjectListView(APIView):
     def get(self, request):
-        logger.info("[PROJECT LIST] Request received at %s with query_params=%s",
-                    request.path, request.query_params)
+        logger.info("[PROJECT LIST] Request received at %s", request.path)
         try:
-            projects = Project.objects.all().order_by("created_day")
+            projects = Project.objects.all().order_by("-created_day")
+            
+            # NẾU KHÔNG CÓ PROJECT → TRẢ VỀ ARRAY RỖNG
             if not projects.exists():
-                logger.warning("No projects found in database")
-                return Response({"detail": "Không có project nào."},
-                                status=status.HTTP_404_NOT_FOUND)
-
-            paginator = PageNumberPagination()
-            paginator.page_size = 5
-            result_page = paginator.paginate_queryset(projects, request)
-
-            serializer = ProjectSerializer(result_page, many=True)
-            logger.info("Returning %s projects for page=%s",
-                        len(result_page), request.query_params.get("page", 1))
-
-            return paginator.get_paginated_response(serializer.data)
-
+                logger.info("No projects found, returning empty array")
+                return Response([], status=status.HTTP_200_OK)  # ← SỬA ĐÂY!
+            
+            serializer = ProjectSerializer(projects, many=True)
+            logger.info("Returning %d projects", projects.count())
+            
+            return Response(serializer.data, status=status.HTTP_200_OK)
+            
         except Exception as e:
-            logger.exception("Error retrieving project list with pagination")
-            return Response({"error": f"Lỗi khi lấy danh sách project: {str(e)}"},
-                            status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            logger.exception("Error retrieving project list")
+            return Response(
+                {"error": f"Lỗi khi lấy danh sách project: {str(e)}"}, 
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
